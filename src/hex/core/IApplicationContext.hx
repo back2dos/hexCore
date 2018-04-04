@@ -13,10 +13,6 @@ interface IApplicationContext extends IContextModule
 	function getName() : String;
 	
 	function getDomain() : Domain;
-
-	function dispatch( messageType : MessageType, ?data : Array<Dynamic> ) : Void;
-	
-	function getCoreFactory() : ICoreFactory;
 	
 	function getInjector() : IDependencyInjector;
 }

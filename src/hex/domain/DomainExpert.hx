@@ -45,7 +45,7 @@ class DomainExpert
 			}
 			else
 			{
-				var key : String = Type.getClassName( Type.getClass( module ) ) + HashCodeFactory.getKey( module );
+				var key : String = getKey(module);
 				if ( this._removedModules.exists( key ) && this._removedModules.get( key ) )
 				{
 					return null;
@@ -69,12 +69,15 @@ class DomainExpert
 	{
 		this._registeredDomains.set( DomainExpert._DomainIndex, domain );
 	}
+
+	function getKey(module:IContextModule)
+		return HashCodeFactory.getKey( Type.getClass( module ) ) +':'+ HashCodeFactory.getKey( module );
 	
 	public function releaseDomain( module : IContextModule ) : Void
 	{
 		if ( module.isReleased )
 		{
-			var key : String = Type.getClassName( Type.getClass( module ) ) + HashCodeFactory.getKey( module );
+			var key : String = getKey(module);
 			
 			if ( this._removedModules.exists( key ) )
 			{

@@ -3,14 +3,19 @@ package hex.di.mapping;
 /**
  * @author Francis Bourre
  */
-typedef MappingDefinition =
+@:structInit class MappingDefinition
 {
-	var fromType 				: String;
-	@:optional var withName 	: String;
+			
+	public var fromType 				: ClassName;
+	@:optional public var withName 	: MappingName;
 	
-	@:optional var toClass 		: Class<Dynamic>;
-	@:optional var toValue 		: Any;
+	@:optional public var toClass 		: Class<Dynamic>;
+	@:optional public var toValue 		: Any;
 	
-	@:optional var asSingleton 	: Bool;
-	@:optional var injectInto 	: Bool;
+	@:optional public var asSingleton 	: Bool;
+	@:optional public var injectInto 	: Bool;
+
+	public inline function id():String
+		return (fromType|withName);
+
 }
