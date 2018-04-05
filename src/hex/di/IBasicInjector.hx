@@ -16,12 +16,10 @@ interface IBasicInjector
 	function getInstanceWithClassName<T>( className : ClassName, ?name : MappingName, targetType : Class<Dynamic> = null, shouldThrowAnError : Bool = true ) : T;
 
     function instantiateUnmapped<T>( type : Class<T> ) : T;
-
-    function getOrCreateNewInstance<T>( type : Class<T> ) : T;
 	
-	function hasMapping<T>( type : Class<T>, ?name : MappingName ) : Bool;
+	function hasMapping<T>( type : ClassRef<T>, ?name : MappingName ) : Bool;
 	
-	function unmap<T>( type : Class<T>, ?name : MappingName ) : Void;
+	function unmap<T>( type : ClassRef<T>, ?name : MappingName ) : Void;
 	
 	function unmapClassName( className : ClassName, ?name : MappingName ) : Void;
 	
